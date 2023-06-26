@@ -2,6 +2,7 @@ import { getSettings } from "@/lib/sanity/client";
 import Footer from "@/components/footer";
 import { urlForImage } from "@/lib/sanity/image";
 import Navbar from "@/components/navbar";
+import { Analytics } from "@vercel/analytics/react"
 
 export async function sharedMetaData(params) {
   const settings = await getSettings();
@@ -17,8 +18,8 @@ export async function sharedMetaData(params) {
     description:
       settings?.description ||
       "Stablo - popular open-source next.js and sanity blog template",
-    keywords: ["Next.js", "Sanity", "Tailwind CSS"],
-    authors: [{ name: "Surjith" }],
+    keywords: ["Swift", "iOS"],
+    authors: [{ name: "이창준" }],
     canonical: settings?.url,
     openGraph: {
       images: [
@@ -52,7 +53,7 @@ export default async function Layout({ children, params }) {
     <>
       <Navbar {...settings} />
 
-      <div>{children}</div>
+      <div>{children}<Analytics /></div>
 
       <Footer {...settings} />
     </>
